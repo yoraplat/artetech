@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<form method='POST' action="{{ path('update_timesheet', {'id': timesheet.id}) }}">
+
+    <label for="rate">Rate id:</label>
+    <input name='rate' value="{{ timesheet['rate_id'] }}"/>
+    <br/>
+    <label for="startDate">Start date:</label>
+    <input name='startDate' value="{{ timesheet['start_date']|date('y-m-d h:m:s') }}"/>
+    <br/>
+    <label for="endDate">End date:</label>
+    <input name='endDate' value="{{ timesheet['end_date']|date('y-m-d h:m:s') }}"/>
+    <br/>
+    <label for="pauze">Pauze:</label>
+    <input name='pauze' value="{{ timesheet.pauze }}"/>
+    <br/>
+    <label for="activities">Activities:</label>
+    <input name='activities' value="{{ timesheet.activities }}"/>
+    <br/>
+    {% if timesheet.materials|default(null) %}
+    <label for="materials">Materials:</label>
+    <input name='materials' value="{{ timesheet.materials }}"/>
+    <br/>
+    {% endif %}
+    
+    {% if timesheet['hourly_rate']|default(null) %}
+    <label for="hourlyRate">Hourly rate:</label>
+    <input name='hourlyRate' value="{{ timesheet['hourly_rate'] }}"/>
+    <br/>
+    {% endif %}
+    
+    {% if timesheet['transport_cost']|default(null) %}
+    <label for="transportCost">Transport cost:</label>
+    <input name='transportCost' value="{{ timesheet['transport_cost'] }}"/>
+    {% endif %}
+
+    <button>Submit</button>
+</form>
+
+
+{% endblock %}

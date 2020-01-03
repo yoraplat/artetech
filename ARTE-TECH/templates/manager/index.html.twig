@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ManagerController!{% endblock %}
+
+{% block body %}
+
+
+<a href="{{ path('create_timesheet') }}">Add timesheet</a>
+
+<ul>
+{% for employee in employees %}
+    <li>Employee: <a href="{{ path('view_employee', {'id':employee.id}) }}">{{ employee.name }}</a></li>
+{% endfor %}
+</ul>
+
+{# {% for timesheet in timesheets %}
+                <li>Customer is: {{ timesheet['customer_id'] }}</li>
+                <li>Pauze: {{ timesheet.pauze }} minutes</li>
+                <li>Time worked (Pauze excluded): {{ timesheet['end_date'].diff(timesheet['start_date'])|date('%h hours and %m minutes') }}</li>
+                <li>Activities: {{ timesheet['activities'] }}</li>
+                {% if timesheet.materials|default(null) %}
+                <li>Materials: {{ timesheet['materials'] }}</li>
+                {% endif %}
+                {% if timesheet['hourly_rate']|default(null) %}
+                <li>Hourly rate: {{ timesheet['hourly_rate'] }}</li>
+                {% endif %}
+                {% if timesheet['transport_cost']|default(null) %}
+                <li>Transport cost: {{ timesheet['transport_cost'] }}</li>
+                {% endif %}
+                <li><a href="{{ path('edit_timesheet',  {'id': timesheet.id})}}">Edit</a></li>
+{% endfor %} #}
+
+
+{% endblock %}

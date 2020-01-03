@@ -1,0 +1,36 @@
+
+- Personeel
+- Onderaannemers
+  - startuur
+  - einduur
+  - activiteiten
+  - verplaatsing
+  - ...
+
+Personeel vult uren in via app
+
+Mobiele WebApp
+Iedere dag:
+  Klant, datum, startuur, einduur, pauze,
+  uitgevoerde activiteiten, gebruikte materialen, transport
+  - onderaannemers kunnen tarief aanpassen: uurtarief & transportkost
+
+Overzicht totaal gepresteerde uren (per week, per maand, per klant)
+
+Backend
+
+Uurtarief en transportkost afgesproken en ingevoerd via backend
+  overuren tijdens de week (> 8 uur): 20% meer
+  zaterdag: 50% meerkost
+  zondag: dubbel tariefbv
+
+Manager kan uren zien en aanpassen
+
+Gepresteerde uren worden naar klant gemaild en bevestigd door klant
+
+totaal prijs per periode berekenen en exporteren naar pdf/xls
+
+Frontend
+iedere klant kan gepresteerde uren nakijken
+kunnen opmerkingen sturen
+periode als pdf downloaden

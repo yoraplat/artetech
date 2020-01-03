@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<a href="#">Add timesheet</a>
+<ul>
+    
+    <li>Created by {{ timesheet.id }}</li>
+    <li>Customer is: {{ timesheet['customer_id'] }}</li>
+    {# <li>Time worked: {{ date(timesheet[0]start_date).diff(date(timesheet[0]end_date)) }}</li> #}
+    <li>Pauze: {{ timesheet.pauze }} minutes</li>
+    <li>Time worked (Pauze excluded): {{ timesheet['end_date'].diff(timesheet['start_date'])|date('%h hours and %m minutes') }}</li>
+    <li>Activities: {{ timesheet['activities'] }}</li>
+    <li><a href="#">Save</a></li>
+</ul>
+
+
+{% endblock %}

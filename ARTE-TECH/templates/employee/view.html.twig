@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TEST{% endblock %}
+
+{% block body %}
+
+{% if employee != null %}
+{{ employee.name }}
+
+{% for timesheet in timesheets %}
+<details>
+        
+                <summary>Customer {{ timesheet['customer_id']}} on {{ timesheet['start_date']|date('d/m/y') }}</summary>
+                <ul>
+                <li>Pauze: {{ timesheet.pauze }} minutes</li>
+                <li>Time worked (Pauze included): {{ timesheet['end_date'].diff(timesheet['start_date'])|date('%h hours and %m minutes, %s seconds')}}</li>
+                <li>Activities: {{ timesheet['activities'] }}</li>
+                {% if timesheet.materials|default(null) %}
+                <li>Materials: {{ timesheet['materials'] }}</li>
+                {% endif %}
+                {% if timesheet['hourly_rate']|default(null) %}
+                <li>Hourly rate: {{ timesheet['hourly_rate'] }}</li>
+                {% endif %}
+                {% if timesheet['transport_cost']|default(null) %}
+                <li>Transport cost: {{ timesheet['transport_cost'] }}</li>
+                {% endif %}
+                </ul>
+</details>
+{% endfor %}
+{% else %}
+User is not an employee or does not exist
+{% endif %}
+{% endblock %}

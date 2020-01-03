@@ -1,0 +1,11 @@
+.nav-container {
+    width: 100%;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-evenly;
+}
+.nav-element {
+    flex-direction: row;
+}
