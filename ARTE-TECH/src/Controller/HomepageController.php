@@ -10,10 +10,21 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class HomepageController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/home", name="home")
      */
     public function index() {
-        return $this->render('base.html.twig');
+        $user = $this->getUser()->getRole();
+
+        if($user == "ROLE_MANAGER") {
+            $response = $this->forward('App\Controller\ManagerController::index');
+
+        } elseif($user == "ROLE_CUSTOMER") {
+            $response = $this->forward('App\Controller\FrontendController::index');
+        } else {
+            dd('no_access_right');
+        }
+        return $response;
+        // return $this->render('base.html.twig');
     }
     
 }

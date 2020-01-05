@@ -22,11 +22,15 @@ class ManagerController extends AbstractController
         ->getRepository(User::class)
         ->findBy(['role' => 'ROLE_EMPLOYEE']);
 
+        $customers = $this->getDoctrine()
+        ->getRepository(User::class)
+        ->findBy(['role' => 'ROLE_CUSTOMER']);
 
         return $this->render('manager/index.html.twig', [
             'controller_name' => 'ManagerController',
             'timesheets' => $timesheets,
             'employees' => $employees,
+            'customers' => $customers,
         ]);
     }
    

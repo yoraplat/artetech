@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="nav-container">
+    <div class="navigation">
+        <div class="nav-element"><a href="{{ path('manager') }}">Manager</a></div>
+        <div class="nav-element"><a href="{{ path('customers') }}">Klanten</a></div>
+        <div class="nav-element"><a href="{{ path('app_logout') }}">Uitloggen</a></div>
+   </div>
+</div>
+
 <a href="#">Add timesheet</a>
 <ul>
     

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<h1>ARTE-TECH</h1>
+    <h2>Klant aanpassen</h2>
+
+<div class="nav-container">
+    <div class="navigation">
+        <div class="nav-element"><a href="{{ path('manager') }}">Manager</a></div>
+        <div class="nav-element"><a href="{{ path('customers') }}">Klanten</a></div>
+        <div class="nav-element"><a href="{{ path('app_logout') }}">Uitloggen</a></div>
+    </div>
+</div>
+    <div class="timesheet-form-container">
+<form method='POST' class="timesheet-form" action="{{ path('update_customer', {'id': customer.id}) }}">
+
+    <label for="name">Naam:</label>
+    <input name='name' value="{{ customer.name }}"/>
+    
+    <label for="email">Email:</label>
+    <input name='email' value="{{ customer.email }}"/>
+    
+    <label for="hourly_rate">Uurtarief:</label>
+    <input name='hourly_rate' value="{{ customer.hourly_rate }}"/>
+{# 
+    {% if timesheet.materials|default(null) %}
+    <label for="materials">Materials:</label>
+    <input name='materials' value="{{ timesheet.materials }}"/>
+    {% endif %}
+    
+    {% if timesheet['hourly_rate']|default(null) %}
+    <label for="hourlyRate">Hourly rate:</label>
+    <input name='hourlyRate' value="{{ timesheet['hourly_rate'] }}"/>
+    {% endif %}
+    
+    {% if timesheet['transport_cost']|default(null) %}
+    <label for="transportCost">Transport cost:</label>
+    <input name='transportCost' value="{{ timesheet['transport_cost'] }}"/>
+    {% endif %} #}
+    <button>Opslaan</button>
+</form>
+</div>
+
+
+{% endblock %}

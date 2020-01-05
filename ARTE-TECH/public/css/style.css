@@ -1,11 +1,138 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+/* Inputs */
+.form-container .login-form input {
+    border: 1.5px solid #33A1FD;
+    border-radius: 5px;
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    color: #33A1FD;
+}
+.form-container .login-form label {
+    font-size: 1.1em;
+    font-family: 'Raleway semi-bold', sans-serif;
+    color: #33A1FD;
+}
+.form-container form{
+    background-color: #EEE8A9;
+    padding: 20px 30px;
+}
+.form-container .login-form button {
+    color: #EEE8A9;
+    border: 0;
+    background-color: #33A1FD;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 1.2em;
+}
+
+.timesheet-form input {
+    border: 1.5px solid #33A1FD;
+    border-radius: 5px;
+    background-color: transparent;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    color: #33A1FD;
+}
+.timesheet-form label {
+    font-size: 1.1em;
+    font-family: 'Raleway semi-bold', sans-serif;
+    color: #33A1FD;
+    display: block;
+    margin-top: 10px;
+}
+.timesheet-form {
+    background-color: #EEE8A9;
+    padding: 20px 30px;
+}
+.timesheet-form button {
+    color: #EEE8A9;
+    border: 0;
+    background-color: #33A1FD;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 1.2em;
+}
+
+
+.grid-container {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+}
+body {
+    background-color: #F3F0CE;
+    font-family: 'Roboto', sans-serif;
+    color: #235D58;
+}
+
+h1 {
+    font-family: 'Roboto bold', sans-serif;
+    font-size: 3em;
+}
+h2 {
+    font-family: 'Roboto bold', sans-serif;
+    font-size: 2.1em;
+}
 .nav-container {
     width: 100%;
 }
 
 .navigation {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .nav-element {
     flex-direction: row;
+}
+
+.form-container {
+    margin-top: 50px;    
+}
+
+.timesheets-table {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #EEE8A9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid #33A1FD;
+}
+
+.timesheets-table a {
+    text-decoration: none;
+    padding: 2px 5px;
+    color: #EEE8A9;
+    background-color: #33A1FD;
+    border-radius: 6px;
+}
+
+#danger-btn {
+    margin-left: 5px;
+    background-color: red;
+}
+
+.timesheets-table th {
+    text-align: left;
+}
+
+.timesheets-table td, .timesheets-table th {
+    border-bottom: 1px solid #33A1FD;
+}
+
+
+.timesheets-table tr td {
+    padding-top: 10px;
+}
+
+
+.btn_blue{
+    color: #EEE8A9;
+    border: 0;
+    background-color: #33A1FD;
+    border-radius: 5px;
+    padding: 3px 10px;
+    font-size: 1.2em;
 }

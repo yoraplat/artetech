@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Klanten{% endblock %}
+
+{% block body %}
+
+<h1>ARTE-TECH</h1>
+    <h2>Klanten</h2>
+<div class="nav-container">
+    <div class="navigation">
+        <div class="nav-element"><a href="{{ path('manager') }}">Manager</a></div>
+        <div class="nav-element"><a href="{{ path('customers') }}">Klanten</a></div>
+        <div class="nav-element"><a href="{{ path('app_logout') }}">Uitloggen</a></div>
+    </div>
+</div>
+<table class="timesheets-table customers-table">
+
+<tr>
+    <th>Naam</th>
+    <th>Uurtarief</th>
+    <th>Email</th>
+    <th>Aangemaakt op</th>
+    <th>Opties</th>
+</tr>
+{% for customer in customers %}
+<tr>
+    <td>{{ customer.name }}</td>
+    <td>{{ customer.hourly_rate }}</td>
+    {# <td>{{ dump(customer) }}</td> #}
+    <td>{{ customer.email }}</td>
+    {# <td>{{ customer['created_at'] }}</td> #}
+    <td>Created at</td>
+    <td><a href="{{ path('edit_customer', {'id':customer.id}) }}" class="aanpassen-btn">Aanpassen</a><a href="{{ path('delete_customer', {'id':customer.id}) }}" id="danger-btn">Verwijderen</a></td>
+</tr>
+{% endfor %}
+<a href="{{ path('create_customer') }}" class="btn_blue">Klant toevoegen</a>
+</table>
+
+
+{% endblock %}

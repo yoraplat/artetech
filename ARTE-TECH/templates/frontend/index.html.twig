@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Klant dashboard{% endblock %}
+
+{% block body %}
+
+
+<h1>ARTE-TECH</h1>
+    <h2>Timesheets</h2>
+    <div class="nav-container">
+    <div class="navigation">
+        <div class="nav-element"><a href="{{ path('app_logout') }}">Logout</a></div>
+    </div>
+</div>
+<table class="timesheets-table">
+<tr>
+    <th>Datum</th>
+    <th>Uren</th>
+    <th>Werknemer</th>
+    <th>Bevestiging</th>
+    <th>Opties</th>
+</tr>
+{% for timesheet in timesheets %}
+<tr>
+    <td>{{ timesheet['start_date']|date('l d/m/y') }}</td>
+    <td>{{ timesheet['end_date'].diff(timesheet['start_date'])|date('%hu%mm') }}</td>
+    {% for employee in employees %}
+        {% if employee.id == timesheet['employee_id'] %}
+        <td>{{ employee.name }}</td>
+        {% endif %}
+    {% endfor %}
+
+    {% if timesheet.isAccepted == true %}
+        <td>Geaccepteerd</td>
+    {% else %}
+    <td>Nog niet bevestigd</td>
+    {% endif %}
+    <td><a href="{{ path("timesheet_approve_frontend", {'id':timesheet.id}) }}">Bevestigen</a><a href="{{ path("download_timesheet_frontend", {'id':timesheet.id}) }}">Downloaden</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

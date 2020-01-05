@@ -4,14 +4,54 @@
 
 {% block body %}
 
-
-<a href="{{ path('create_timesheet') }}">Add timesheet</a>
-
-<ul>
+<h1>ARTE-TECH</h1>
+    <h2>Timesheets</h2>
+<div class="nav-container">
+    <div class="navigation">
+        <div class="nav-element"><a href="{{ path('manager') }}">Manager</a></div>
+        <div class="nav-element"><a href="{{ path('customers') }}">Klanten</a></div>
+        <div class="nav-element"><a href="{{ path('app_logout') }}">Uitloggen</a></div>
+    </div>
+</div>
+{# 
+<a href="{{ path('create_timesheet') }}">Add timesheet</a> #}
+<table class="timesheets-table">
+<tr>
+    <th>Datum</th>
+    <th>Uren</th>
+    <th>Werknemer</th>
+    <th>Klant</th>
+    <th>Bevestiging</th>
+    <th>Opties</th>
+</tr>
+{% for timesheet in timesheets %}
+<tr>
+    <td>{{ timesheet['start_date']|date('l d/m/y') }}</td>
+    <td>{{ timesheet['end_date'].diff(timesheet['start_date'])|date('%hu%mm') }}</td>
+    {% for employee in employees %}
+        {% if employee.id == timesheet['employee_id'] %}
+        <td>{{ employee.name }}</td>
+        {% endif %}
+    {% endfor %}
+    {% for customer in customers %}
+        {% if customer.id == timesheet['customer_id'] %}
+        <td>{{ customer.name }}</td>
+        {% endif %}
+    {% endfor %}
+    {% if timesheet.isAccepted == true %}
+        <td>Geaccepteerd</td>
+    {% else %}
+    <td>Nog niet bevestigd</td>
+    {% endif %}
+    <td><a href="{{ path("edit_timesheet", {'id':timesheet.id}) }}">Bewerken</a><a href="{{ path("download_timesheet", {'id':timesheet.id}) }}">Downloaden</a></td>
+</tr>
+{% endfor %}
+</table>
+{# <ul>
 {% for employee in employees %}
     <li>Employee: <a href="{{ path('view_employee', {'id':employee.id}) }}">{{ employee.name }}</a></li>
 {% endfor %}
-</ul>
+</ul> #}
 
 {# {% for timesheet in timesheets %}
                 <li>Customer is: {{ timesheet['customer_id'] }}</li>

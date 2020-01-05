@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<h1>ARTE-TECH</h1>
+    <h2>Klant aanpassen</h2>
+
+<div class="nav-container">
+    <div class="navigation">
+        <div class="nav-element"><a href="{{ path('manager') }}">Manager</a></div>
+        <div class="nav-element"><a href="{{ path('customers') }}">Klanten</a></div>
+        <div class="nav-element"><a href="{{ path('app_logout') }}">Uitloggen</a></div>
+    </div>
+</div>
+    <div class="timesheet-form-container">
+<form method='POST' class="timesheet-form" action="{{ path('post_customer') }}">
+
+    <label for="name">Naam:</label>
+    <input name='name' value=""/>
+    
+    <label for="email">Email:</label>
+    <input name='email' value=""/>
+    
+    <label for="password">Wachtwoord:</label>
+    <input type="password" name='password' value=""/>
+    
+    <label for="hourly_rate">Uurtarief:</label>
+    <input name='hourly_rate' value=""/>
+
+    <button>Opslaan</button>
+</form>
+</div>
+
+
+{% endblock %}

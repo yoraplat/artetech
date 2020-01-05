@@ -89,6 +89,11 @@ class Timesheet implements \ArrayAccess
      */
     private $transport_cost;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $is_accepted;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -228,5 +233,17 @@ class Timesheet implements \ArrayAccess
 
     public function offsetUnset($offset) {
         $this->$offset = null;
+    }
+
+    public function getIsAccepted(): ?bool
+    {
+        return $this->is_accepted;
+    }
+
+    public function setIsAccepted(?bool $is_accepted): self
+    {
+        $this->is_accepted = $is_accepted;
+
+        return $this;
     }
 }
